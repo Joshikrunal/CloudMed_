@@ -1,6 +1,5 @@
 /* ================================================================
    FAQSection.css — VicPark-inspired card accordion
-   Cream background · numbered · rounded cards · bold questions
    ================================================================ */
 
 .faq-section {
@@ -9,13 +8,11 @@
   color: var(--text);
 }
 
-/* Main layout — heading left, list full width below OR just the list */
 .faq-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Heading block */
 .faq-left {
   margin-bottom: 40px;
 }
@@ -43,7 +40,7 @@
 }
 
 .faq-sub {
-  margin: 0 0 0;
+  margin: 0;
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.3;
@@ -71,14 +68,12 @@
 }
 .faq-cta:hover { background: var(--cta-orange-dark); transform: translateY(-2px); }
 
-/* List */
 .faq-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Each FAQ — rounded card like VicPark */
 .faq-item {
   background: #ffffff;
   border-radius: 12px;
@@ -96,7 +91,6 @@
   border-color: rgba(31,136,202,0.2);
 }
 
-/* Question row */
 .faq-question {
   width: 100%;
   display: flex;
@@ -112,7 +106,6 @@
 
 .faq-question:hover { background: rgba(0,0,0,0.02); }
 
-/* Number badge */
 .faq-num {
   flex-shrink: 0;
   font-family: var(--font-body);
@@ -124,7 +117,6 @@
   text-align: left;
 }
 
-/* Question text */
 .faq-q-text {
   flex: 1;
   font-family: var(--font-body);
@@ -137,7 +129,6 @@
   text-align: left;
 }
 
-/* Plus icon in a circle — VicPark style */
 .faq-icon-wrap {
   flex-shrink: 0;
   width: 36px;
@@ -160,7 +151,7 @@
   flex-shrink: 0;
 }
 
-/* Answer — smooth expand */
+/* Smooth collapse — min-height: 0 is critical for grid 0fr to work */
 .faq-answer-wrap {
   display: grid;
   grid-template-rows: 0fr;
@@ -174,6 +165,7 @@
 
 .faq-answer {
   overflow: hidden;
+  min-height: 0;
   margin: 0;
   padding: 0 24px 22px 64px;
   font-family: var(--font-body);
