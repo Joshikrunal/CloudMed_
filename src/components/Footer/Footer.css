@@ -1,0 +1,98 @@
+/* FIXED: navy background instead of bright blue — smooth transition from dark FAQ */
+.footer {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 56px 8% 24px;
+}
+
+.footer-top {
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* Logo uses Questrial */
+.footer-brand h2 {
+  font-family: "Questrial", sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.footer-brand p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+}
+
+.footer-middle {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 56px;
+  padding: 36px 0;
+}
+
+/* Section titles in body font, not heading */
+.footer-middle h3 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin: 0 0 18px;
+}
+
+.footer-middle a,
+.footer-middle p {
+  display: block;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.footer-middle a:hover { color: #fff; }
+
+.footer-middle p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom span,
+.footer-bottom a {
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: rgba(255,255,255,0.8); }
+
+.footer-bottom div { display: flex; gap: 24px; }
+
+@media (max-width: 900px) {
+  .footer { padding: 44px 24px 22px; }
+  .footer-brand h2 { font-size: 34px; }
+  .footer-middle { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}

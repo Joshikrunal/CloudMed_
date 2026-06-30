@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap");
+
+/*
+  Fonts:
+  - Logo only:     Questrial (also used for hero headings & megamenu nav)
+  - Body / UI:     Helvetica Neue, Arial (system sans-serif)
+  - Section heads: Cormorant Garamond (elegant premium serif)
+*/
+
+:root {
+  /* ── Brand colours ─────────────────────────── */
+  --medical-teal:       #1f88ca;
+  --medical-teal-dark:  #176fa6;
+  --medical-teal-light: #eaf5fc;
+  --navy:               #173c64;
+  --navy-light:         #24587f;
+  --navy-soft:          #edf4f9;
+  --gold:               #c8a96b;
+  --bg:                 #f8fafc;
+  --white:              #ffffff;
+  --text:               #173c64;
+  --muted:              #667b8f;
+  --border:             rgba(23,60,100,0.10);
+  --cta-orange:         #f58220;
+  --cta-orange-dark:    #e16d0c;
+  --success:            #22c55e;
+  --danger:             #ef4444;
+
+  /* ── Esthetic palette ────────────────────────── */
+  --es-dark:   #1a1a1a;
+  --es-cream:  #faf8f5;
+  --es-gold:   #c8a96b;
+  --es-tan:    #9e8a6e;
+  --es-warm:   #f2ede7;
+  --es-bg:     #0e1218;
+
+  /* ── Fonts ──────────────────────────────────── */
+  --font-logo:    "Questrial", sans-serif;
+  --font-body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+
+  /* ── Type scale ──────────────────────────────── */
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-lg:   17px;
+  --text-xl:   20px;
+
+  /* ── Spacing ─────────────────────────────────── */
+  --section-pad:    72px 8%;
+  --section-pad-sm: 56px 24px;
+
+  /* ── Buttons ─────────────────────────────────── */
+  --btn-h:      48px;
+  --btn-pad:    0 24px;
+  --btn-radius: 10px;
+  --btn-fs:     11px;
+  --btn-ls:     0.1em;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body paragraphs justify — NOT headings, lists, buttons */
+p { 
+  text-align: justify; 
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Headings: no global font override — each component sets its own */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+button { font-family: var(--font-body); }

@@ -1,0 +1,74 @@
+.doctors-section {
+  padding: 72px 8%;
+  background: #ffffff;
+}
+
+.doctors-section .section-heading {
+  max-width: 900px;
+  margin-bottom: 70px;
+}
+
+.doctors-section .section-heading span {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--cta-orange); /* Change to var(--medical-teal) if preferred */
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.doctors-section .section-heading h2 {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-family: var(--font-heading); font-size: clamp(28px, 3.2vw, 44px); font-weight: 600;
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.doctors-section .section-heading p {
+  max-width: 780px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+.doctors-grid {
+  display: grid;
+  gap: 32px;
+}
+
+@media (max-width: 1200px) {
+  .doctors-section .section-heading h2 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .doctors-section {
+    padding: 80px 24px;
+  }
+
+  .doctors-section .section-heading {
+    margin-bottom: 50px;
+  }
+
+  .doctors-section .section-heading span {
+    font-size: 15px;
+  }
+
+  .doctors-section .section-heading h2 {
+    font-size: 46px;
+    line-height: 1;
+  }
+
+  .doctors-section .section-heading p {
+    font-size: 18px;
+  }
+
+  .doctors-grid {
+    gap: 24px;
+  }
+}

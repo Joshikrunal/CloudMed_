@@ -1,0 +1,250 @@
+/* ================================================================
+   ConditionsSection.css — Separated 3D floating cards
+   ================================================================ */
+
+.conditions-section {
+  padding: 0;
+  background: var(--navy-soft);
+}
+
+.conditions-header {
+  padding: 72px 8% 72px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.conditions-header span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--medical-teal);
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.conditions-header h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.conditions-header p {
+  margin: 0;
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+/* ── Grid — separated cards with gap ────────────────────────── */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 72px 8%;
+}
+
+/* ── 3D Card ─────────────────────────────────────────────────── */
+.condition-card {
+  position: relative;
+  padding: 36px 32px 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.35s ease,
+    color 0.35s ease;
+  box-shadow:
+    0 2px 8px rgba(23, 60, 100, 0.06),
+    0 8px 24px rgba(23, 60, 100, 0.06);
+}
+
+.condition-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 8px 20px rgba(23, 60, 100, 0.08),
+    0 24px 56px rgba(23, 60, 100, 0.16),
+    0 0 0 1px rgba(31, 136, 202, 0.12);
+}
+
+.condition-card.active {
+  background: var(--navy);
+  color: #ffffff;
+  border-color: var(--navy);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 12px 32px rgba(23, 60, 100, 0.25),
+    0 32px 64px rgba(23, 60, 100, 0.2);
+}
+
+/* Shine overlay */
+.condition-card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.0) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.condition-card:hover .condition-card-shine {
+  opacity: 1;
+}
+
+.condition-card.active .condition-card-shine {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.0) 60%
+  );
+  opacity: 1;
+}
+
+.condition-icon {
+  position: relative;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 28px;
+  border-radius: 12px;
+  background: var(--medical-teal-light);
+  color: var(--medical-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.35s, color 0.35s;
+}
+
+.condition-card.active .condition-icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--gold);
+}
+
+.condition-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 14px;
+  color: inherit;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.condition-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.condition-card.active p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.condition-card ul {
+  position: relative;
+  z-index: 2;
+  margin: 20px 0 0;
+  padding: 20px 0 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.condition-card li {
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.condition-card li::marker {
+  color: var(--gold);
+}
+
+.condition-toggle {
+  position: relative;
+  z-index: 2;
+  margin-top: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--medical-teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.condition-toggle:hover {
+  letter-spacing: 0.22em;
+}
+
+.condition-card.active .condition-toggle {
+  color: var(--gold);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .conditions-header {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .conditions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .conditions-header {
+    padding: 52px 20px 54px;
+  }
+
+  .conditions-header h2 {
+    font-size: 42px;
+  }
+
+  .conditions-header p {
+    font-size: 18px;
+  }
+
+  .conditions-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 48px 24px 64px;
+  }
+
+  .condition-card {
+    min-height: auto;
+    padding: 28px 24px;
+  }
+
+  .condition-card:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
+}

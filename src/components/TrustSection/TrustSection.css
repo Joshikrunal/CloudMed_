@@ -1,0 +1,366 @@
+.trust-section {
+  background: var(--bg);
+  padding: 72px 0 0;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.trust-wrapper {
+  width: 92%;
+  max-width: 1380px;
+  margin: 0 auto 56px;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.trust-badge {
+  width: fit-content;
+  margin-bottom: 26px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  background: var(--medical-teal-light);
+  color: var(--medical-teal);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.trust-badge span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--medical-teal);
+  flex-shrink: 0;
+}
+
+.trust-content h2 {
+  margin: 0 0 24px;
+  max-width: 640px;
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--text);
+}
+
+.trust-content h2 strong {
+  color: var(--medical-teal);
+  font-weight: 700;
+}
+
+.trust-description {
+  max-width: 600px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.55;
+}
+
+.trust-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: grid;
+  gap: 13px;
+}
+
+.trust-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.trust-list svg { color: var(--medical-teal); flex-shrink: 0; }
+
+.trust-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+/* FIXED: 6px radius buttons, consistent with site */
+.trust-primary-btn,
+.trust-secondary-btn {
+  height: var(--btn-h);
+  padding: var(--btn-pad);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--btn-fs);
+  font-weight: 700;
+  letter-spacing: var(--btn-ls);
+  text-transform: uppercase;
+  transition: 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.trust-primary-btn {
+  background: var(--cta-orange);
+  color: #ffffff;
+  border-color: var(--cta-orange);
+  box-shadow: 0 8px 24px rgba(245,130,32,0.22);
+}
+.trust-primary-btn:hover { background: var(--cta-orange-dark); border-color: var(--cta-orange-dark); transform: translateY(-2px); }
+
+.trust-secondary-btn {
+  background: #ffffff;
+  color: var(--text);
+  border-color: var(--border);
+}
+.trust-secondary-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(23,60,100,0.1); }
+
+.trust-rating {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.trust-stars { display: flex; gap: 2px; color: #d9a441; }
+
+.trust-rating p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.trust-image-card {
+  position: relative;
+  height: 660px;
+  min-height: 660px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(23,60,100,0.16);
+}
+
+.trust-image-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(23,60,100,0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.trust-image-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.trust-image-card:hover img { transform: scale(1.03); }
+
+.trust-floating {
+  position: absolute;
+  z-index: 2;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 12px 36px rgba(23,60,100,0.14);
+}
+
+.trust-floating-top { top: 36px; left: -18px; width: 165px; }
+.trust-floating small {
+  display: block;
+  margin-bottom: 8px;
+  color: #8a99aa;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.trust-floating strong {
+  display: block;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+.trust-floating span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.trust-floating span svg { color: var(--medical-teal); }
+
+.trust-floating-right { right: -18px; top: 220px; display: flex; gap: 12px; align-items: center; }
+.trust-floating-right svg { color: var(--medical-teal); }
+.trust-floating-right span { margin-top: 4px; }
+
+.trust-location-pill {
+  position: absolute;
+  z-index: 2;
+  left: 22px; bottom: 22px;
+  padding: 11px 18px;
+  border-radius: 6px;
+  background: rgba(23,60,100,0.92);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trust-location-pill svg { color: var(--medical-teal); }
+
+/* IMPACT */
+.impact-section {
+  padding: 72px 8%;
+  background: linear-gradient(rgba(245,250,252,0.9), rgba(245,250,252,0.93)),
+              url("../../assets/trust-care.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.impact-header {
+  max-width: 740px;
+  margin: 0 auto 64px;
+}
+
+.impact-header span {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--medical-teal);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+/* FIXED: orange decorative after → teal */
+.impact-header span::after {
+  content: "";
+  display: block;
+  width: 44px; height: 2px;
+  margin: 16px auto 0;
+  background: var(--medical-teal);
+  border-radius: 1px;
+}
+
+.impact-header h2 {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--text);
+}
+
+.impact-header p {
+  margin: 0 auto;
+  max-width: 600px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.55;
+}
+
+.impact-grid {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+}
+
+.impact-card {
+  min-height: 300px;
+  padding: 44px 28px 36px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.56);
+  border: 1px solid rgba(255,255,255,0.8);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 20px 60px rgba(23,60,100,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 28px 80px rgba(23,60,100,0.16);
+}
+
+.impact-card svg {
+  width: 76px; height: 76px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  color: var(--medical-teal);
+  background: rgba(255,255,255,0.56);
+  border: 1px solid rgba(255,255,255,0.8);
+  stroke-width: 1.7;
+}
+
+.impact-card h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+/* FIXED: impact orange line → teal */
+.impact-line {
+  width: 36px; height: 2px;
+  margin: 20px 0 16px;
+  background: var(--medical-teal);
+  border-radius: 1px;
+}
+
+.impact-card p {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1100px) {
+  .trust-wrapper { grid-template-columns: 1fr; }
+  .trust-content h2 { font-size: 44px; }
+  .trust-image-card { height: 500px; min-height: 500px; }
+  .impact-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 650px) {
+  .trust-section { padding-top: 70px; }
+  .trust-wrapper { width: calc(100% - 40px); gap: 40px; }
+  .trust-content h2 { font-size: 36px; }
+  .trust-description { font-size: 16px; }
+  .trust-primary-btn, .trust-secondary-btn { width: 100%; }
+  .trust-image-card { height: 400px; min-height: 400px; }
+  .trust-floating { display: none; }
+  .impact-section { padding: 52px 20px; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .impact-header h2 { font-size: 38px; }
+}

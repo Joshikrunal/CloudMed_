@@ -1,0 +1,418 @@
+/* ================================================================
+   MegaMenu.css
+   LOCKED dimensions — fixed px panel, square cards, zoom-proof
+   ================================================================ */
+
+/* Full-screen backdrop */
+.mm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.4s ease;
+  cursor: pointer;
+}
+
+.mm-backdrop--in {
+  background: rgba(0, 0, 0, 0.38);
+}
+
+/* ── PANEL — fixed pixel width, not vw ─────────────────────────
+   Total panel: 1060px fixed. Left: 400px, Right: 660px.
+   This never changes with zoom or viewport.
+   ──────────────────────────────────────────────────────────────── */
+.mm-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Fixed px width — immune to zoom */
+  width: 1060px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 400px 660px;
+  background: #ffffff;
+  cursor: default;
+  border-radius: 0;
+  box-shadow: 4px 0 40px rgba(0,0,0,0.12);
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  overflow: hidden;
+}
+
+.mm-panel--in {
+  transform: translateX(0);
+}
+
+/* Close — positioned relative to right edge of panel */
+.mm-close {
+  position: fixed;
+  top: 28px;
+  /* 1060px panel + some gap into exposed area */
+  left: calc(1060px + 20px);
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: background 0.2s, border-color 0.2s, transform 0.25s ease;
+}
+
+.mm-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* ================================================================
+   LEFT COLUMN — 400px fixed
+   ================================================================ */
+.mm-left {
+  width: 400px;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  flex-shrink: 0;
+}
+
+.mm-nav {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 88px 52px 24px 52px;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.mm-nav::-webkit-scrollbar { display: none; }
+
+.mm-group {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mm-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.mm-item {
+  display: block;
+  width: 100%;
+  padding: 7px 0;
+  background: transparent !important;
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: "Questrial", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #111111;
+  transition: color 0.18s ease, opacity 0.45s ease, transform 0.45s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mm-item:hover {
+  color: var(--medical-teal);
+  background: transparent !important;
+}
+
+.mm-item--active {
+  color: var(--medical-teal) !important;
+  background: transparent !important;
+}
+
+.mm-item:focus,
+.mm-item:active {
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.mm-utils {
+  flex-shrink: 0;
+  padding: 14px 52px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.mm-util {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+  padding: 4px 0;
+  transition: color 0.18s;
+}
+
+.mm-util:hover { color: var(--medical-teal); }
+
+.mm-foot {
+  flex-shrink: 0;
+  padding: 14px 52px 36px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.mm-location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #888;
+}
+
+.mm-logo-link {
+  display: block;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.mm-logo-link:hover { opacity: 0.7; }
+
+.mm-logo-img {
+  height: 46px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ================================================================
+   RIGHT COLUMN — 660px fixed, SQUARE cards
+   ================================================================ */
+.mm-right {
+  width: 660px;
+  height: 100vh;
+  background: #f0f0ee;
+  padding: 44px 40px 44px 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* ── SQUARE CARDS — aspect-ratio 1:1, locked forever ──────────
+   Grid: 2 columns, rows auto. Each card is a perfect square.
+   Width of each card = (660 - 36 - 40 - 10) / 2 = 287px
+   So height = 287px. Always square.
+   We use aspect-ratio: 1/1 so the browser enforces squareness.
+   ──────────────────────────────────────────────────────────────── */
+.mm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 10px;
+  width: 100%;
+  align-content: start;
+}
+
+.mm-card {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+}
+
+.mm-card:hover .mm-card-img {
+  transform: scale(1.05);
+}
+
+.mm-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: mm-fade 0.3s ease forwards;
+}
+
+@keyframes mm-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.mm-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 14px 14px;
+  /* Transparent frosted glass — photo visible through it */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0)   0%,
+    rgba(255, 255, 255, 0.18) 40%,
+    rgba(255, 255, 255, 0.52) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2;
+}
+
+.mm-card-label span {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #111111;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ================================================================
+   RESPONSIVE — when viewport < panel width, switch to full-width
+   ================================================================ */
+@media (max-width: 1100px) {
+  /* Panel shrinks to fit but keeps structure */
+  .mm-panel {
+    width: 900px;
+    grid-template-columns: 360px 540px;
+  }
+  .mm-left { width: 360px; }
+  .mm-right { width: 540px; }
+  .mm-close { left: calc(900px + 16px); }
+  .mm-item { font-size: 18px; }
+  .mm-nav { padding: 80px 44px 20px; }
+  .mm-utils { padding: 12px 44px 10px; }
+  .mm-foot { padding: 12px 44px 32px; }
+  .mm-right { padding: 36px 32px 36px 28px; }
+  .mm-grid { grid-template-rows: 180px 180px; }
+  .mm-grid--fixed { grid-template-rows: 180px 180px; }
+}
+
+@media (max-width: 960px) {
+  /* Stack vertically on tablets */
+  .mm-panel {
+    width: 100vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+  .mm-backdrop--in { background: rgba(0, 0, 0, 0); }
+  .mm-close {
+    position: fixed;
+    top: 18px;
+    left: auto;
+    right: 18px;
+    color: #111;
+    border-color: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .mm-left {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .mm-right {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+  /* On mobile, cards still square via aspect-ratio */
+  .mm-grid { grid-template-columns: 1fr 1fr; }
+  .mm-nav { flex: none; padding: 96px 36px 20px; }
+  .mm-utils { padding: 12px 36px 10px; }
+  .mm-foot { padding: 12px 36px 28px; }
+  .mm-item { font-size: 18px; }
+}
+
+@media (max-width: 600px) {
+  .mm-item { font-size: 16px; padding: 6px 0; }
+  .mm-nav { padding: 88px 24px 16px; }
+  .mm-group { padding-bottom: 16px; }
+  .mm-utils { padding: 10px 24px 8px; }
+  .mm-foot { padding: 10px 24px 24px; }
+  .mm-right { padding: 16px; }
+  .mm-grid { gap: 8px; }
+  .mm-card-label span { font-size: 11px; }
+  .mm-logo-img { height: 40px; }
+}
+
+@media (max-height: 760px) and (min-width: 960px) {
+  .mm-item { font-size: 17px; padding: 6px 0; }
+  .mm-group { padding-bottom: 14px; }
+  .mm-nav { padding-top: 70px; }
+}
+
+/* ── Fixed 5-card grid (Group 0) ────────────────────────────────
+   2 cards top row, 3 cards bottom row — all square via aspect-ratio
+───────────────────────────────────────────────────────────────── */
+.mm-grid--fixed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 190px 190px;
+  gap: 10px;
+  width: 100%;
+  align-content: start;
+}
+
+/* First 2 cards — top row, 2 columns */
+.mm-grid--fixed .mm-card:nth-child(1),
+.mm-grid--fixed .mm-card:nth-child(2) {
+  /* normal 2-col placement */
+}
+
+/* Cards 3, 4, 5 — bottom row spans full width split into 3 */
+.mm-grid--fixed {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+.mm-grid--fixed .mm-card:nth-child(3) {
+  grid-column: 1;
+}
+.mm-grid--fixed .mm-card:nth-child(4) {
+  grid-column: 2;
+}
+.mm-grid--fixed .mm-card:nth-child(5) {
+  grid-column: 1 / -1;
+  aspect-ratio: 2 / 1; /* wide card for the 5th */
+}
