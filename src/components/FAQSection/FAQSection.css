@@ -1,7 +1,3 @@
-/* ================================================================
-   FAQSection.css — VicPark-inspired card accordion
-   ================================================================ */
-
 .faq-section {
   background: var(--navy-soft);
   padding: 72px 8%;
@@ -151,7 +147,7 @@
   flex-shrink: 0;
 }
 
-/* Smooth collapse — min-height: 0 is critical for grid 0fr to work */
+/* THE KEY FIX — min-height: 0 on .faq-answer makes grid 0fr actually collapse */
 .faq-answer-wrap {
   display: grid;
   grid-template-rows: 0fr;
@@ -176,7 +172,6 @@
   text-align: justify;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .faq-heading { font-size: clamp(24px, 3.5vw, 38px); }
 }

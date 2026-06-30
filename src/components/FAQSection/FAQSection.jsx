@@ -25,7 +25,6 @@ export default function FAQSection({ faqs, heading, subheading }) {
     <section className="faq-section">
       <div className="faq-inner">
 
-        {/* Heading block */}
         <div className="faq-left">
           <span className="faq-kicker">FAQ</span>
           <h2 className="faq-heading">
@@ -35,7 +34,6 @@ export default function FAQSection({ faqs, heading, subheading }) {
           <a href="#appointment" className="faq-cta">Book a Consultation</a>
         </div>
 
-        {/* Accordion list */}
         <div className="faq-list">
           {normalised.map((faq, index) => {
             const isOpen = openIndex === index;
